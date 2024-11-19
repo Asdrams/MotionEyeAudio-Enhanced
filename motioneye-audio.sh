@@ -35,7 +35,7 @@ case ${operation} in
         full_stream="${stream//\/\//\/\/${credentials}@}"  # Insert credentials into the URL, if available
 
         # Use FFmpeg to capture the audio from the network stream and save it as an AAC file
-        # The audio filter '-filter:a "volume=3.0"' adjusts the volume level. The current value of 3.0 is optimal for the purpose but can be adjusted
+        # The audio filter '-filter:a "volume=1.5"' adjusts the volume level. The current value of 1.5 is optimal for the purpose but can be adjusted
         ffmpeg -y -i "${full_stream}" -c:a aac -b:a 128k -ar 44100 -filter:a "volume=1.5" "${file_path}.aac" &
         
         # Record the process ID of the audio capture process so it can be stopped later
